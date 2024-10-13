@@ -1,18 +1,21 @@
 
-| CS-665       | Software Design & Patterns |
-|--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| CS-665       | Software Design & Patterns    |
+|--------------|-------------------------------|
+| Name         | BHUMIKA KUSUGOLLI PARAMESWARA |
+| Date         | 10/13/2024                    |
+| Course       | Fall                          |
+| Assignment # | Assignment 2                  |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+The goal of this assignment is to create a delivery notification system that uses object-oriented programming and design patterns. This system allows shops to send messages to drivers about new delivery requests. It includes classes for Shop, Driver, and DeliveryRequest, which makes it easy to add new types of drivers or shops later without changing much of the code.
+
+A key part of this assignment is using the Observer pattern. This pattern lets drivers sign up for updates from the shop, so they receive notifications when there are new delivery requests. The assignment also focuses on writing tests to ensure everything works correctly.
+
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/kpbhumika/kpbhumika-cs-665-assignment-2
 
-# Implementation Description 
+# Implementation Description
 
 
 For each assignment, please answer the following:
@@ -25,10 +28,32 @@ easy for others to read and maintain.
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
 
+1. Flexibility in Implementation
+
+The system is built using interfaces, which makes it easy to add or remove different types of drivers and shops. For example, if we want to create a new type of driver, like a VanDriver, we just need to make a new class that follows the DriverObserver interface. This way, we don’t have to change the existing code for other drivers or shops. If we want to add a new shop, we can do that easily too by implementing the DeliveryNotifier interface.
+
+
+2. Simplicity and Understandability
+
+The code is organized into clear classes:
+* Shop: This class manages drivers and notifies them when there’s a new delivery.
+* Driver: This class represents a driver who gets the delivery notifications.
+DeliveryRequest: This class contains information about the order.
+Each class has its own job, which makes the code easier to read and understand. We use descriptive names and comments, so anyone looking at the code can quickly see how things work together.
+
+3. Avoiding Duplicated Code
+
+We avoid repeating code by using the DeliveryNotifier interface in the Shop class. This keeps all the logic for adding, removing, and notifying drivers in one place. It helps prevent mistakes that might happen if we had to manage notifications in several spots. Each driver can also have its own way of handling updates without cluttering the code.
+
+
+4. Design Patterns Used
+
+We used the Observer pattern in this system. The Shop is like a teacher that tells its students (the Drivers) when there’s new information (like a delivery request). This means the shop doesn’t need to know everything about each driver; it just needs to let them know when something happens. If we want to add a new type of driver, we can easily do that by creating a new class that follows the DriverObserver interface.
+
 
 # Maven Commands
 
-We'll use Apache Maven to compile and run this project. You'll need to install Apache Maven (https://maven.apache.org/) on your system. 
+We'll use Apache Maven to compile and run this project. You'll need to install Apache Maven (https://maven.apache.org/) on your system.
 
 Apache Maven is a build automation tool and a project management tool for Java-based projects. Maven provides a standardized way to build, package, and deploy Java applications.
 
@@ -41,7 +66,7 @@ Maven also integrates with other development tools, such as IDEs and continuous 
 Maven provides a large number of plugins for various tasks, such as compiling code, running tests, generating reports, and creating JAR files. This makes it a versatile tool that can be used for many different types of Java projects.
 
 ## Compile
-Type on the command line: 
+Type on the command line:
 
 ```bash
 mvn clean compile
@@ -66,7 +91,7 @@ mvn clean test
 ```
 
 
-## Spotbugs 
+## Spotbugs
 
 SpotBugs is a static code analysis tool for Java that detects potential bugs in your code. It is an open-source tool that can be used as a standalone application or integrated into development tools such as Eclipse, IntelliJ, and Gradle.
 
@@ -79,16 +104,16 @@ Using SpotBugs can help to improve the quality and reliability of your code by c
 Use the following command:
 
 ```bash
-mvn spotbugs:gui 
+mvn spotbugs:gui
 ```
 
-For more info see 
+For more info see
 https://spotbugs.readthedocs.io/en/latest/maven.html
 
 SpotBugs https://spotbugs.github.io/ is the spiritual successor of FindBugs.
 
 
-## Checkstyle 
+## Checkstyle
 
 Checkstyle is a development tool for checking Java source code against a set of coding standards. It is an open-source tool that can be integrated into various integrated development environments (IDEs), such as Eclipse and IntelliJ, as well as build tools like Maven and Gradle.
 
@@ -98,7 +123,7 @@ By using Checkstyle, developers can ensure that their code adheres to a consiste
 
 Checkstyle is highly configurable and can be customized to fit the needs of your team or organization. It supports a wide range of coding standards and can be integrated with other tools, such as code coverage and automated testing tools, to create a comprehensive and automated software development process.
 
-The following command will generate a report in HTML format that you can open in a web browser. 
+The following command will generate a report in HTML format that you can open in a web browser.
 
 ```bash
 mvn checkstyle:checkstyle
